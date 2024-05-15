@@ -1,0 +1,28 @@
+
+.list {
+    list-style-type: none;
+    display: flex;
+    padding-left: 10px;
+}
+
+.link {
+    text-decoration: none;
+    padding: 8px;
+    background-color: sandybrown;
+    color: snow;
+    margin: 10px;
+}
+
+.link:hover {
+    color: snow;
+}
+
+.active {
+    background-color: gray;
+    color: sandybrown;
+}
+
+.text {
+    font-size: 25px;
+    background-color: sandybrown;
+}
