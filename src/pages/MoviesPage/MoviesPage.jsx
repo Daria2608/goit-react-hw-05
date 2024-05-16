@@ -19,9 +19,6 @@ export default function MoviesPage({value, onSearch}) {
     const [error, setError] = useState(false)
 
     const changeQuery = (newQuery) => {
-        if (newQuery === '') {
-            return alert('It`s required!')
-        }
         params.set('query', newQuery)
         setParams(params)
     }
@@ -46,9 +43,18 @@ export default function MoviesPage({value, onSearch}) {
         }
         searchFilm()
     }, [paramQuery])
+    
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const newQuery = e.target.elements.query.value.trim();
+        if (newQuery === '') {
+            return alert('It`s required!')
+        }
+        changeQuery(newQuery)
+    }
 
     return <div className={css.container}> 
-        <form onSubmit={(e) => changeQuery(e.target.elements.query.value.trim())}>
+        <form onSubmit={handleSubmit}>
         <input className={css.input} type="text" name='query' />
         <button className={css.button}  type="submit">Search</button>  
         </form>
